@@ -1,0 +1,26 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 600px;
+  margin: 5rem auto;
+  gap: 1rem;
+}
+
+.home-container button {
+  padding: 0.8em 8em;
+  border-radius: 0.5rem;
+  border: none;
+  background: #ec7160;
+  color: #ffffff;
+}
+
+.home-container button:hover {
+  opacity: 0.7;
+}
+
+.home-container p {
+  font-size: 16px;
+  line-height: 27px;
+  text-align: center;
+}
