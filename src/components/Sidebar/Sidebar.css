@@ -1,0 +1,126 @@
+.gg-trash {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs, 1));
+  width: 10px;
+  height: 12px;
+  border: 2px solid transparent;
+  box-shadow: 0 0 0 2px, inset -2px 0 0, inset 2px 0 0;
+  border-bottom-left-radius: 1px;
+  border-bottom-right-radius: 1px;
+  margin-top: 4px;
+}
+
+.gg-trash::after,
+.gg-trash::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+}
+
+.gg-trash::after {
+  background: currentColor;
+  border-radius: 3px;
+  width: 16px;
+  height: 2px;
+  top: -4px;
+  left: -5px;
+}
+
+.gg-trash::before {
+  width: 10px;
+  height: 4px;
+  border: 2px solid;
+  border-bottom: transparent;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  top: -7px;
+  left: -2px;
+}
+
+.new-note {
+  cursor: pointer;
+  background: #ec7160;
+  border: none;
+  color: white;
+  border-radius: 0.5rem;
+  padding: 0.7rem 7rem;
+  margin: 4rem 0 1.5rem;
+}
+
+.button-container {
+  text-align: center;
+}
+
+.title-container {
+  border-top: 1px solid #e7e7e9;
+  border-bottom: 1px solid #e7e7e9;
+}
+
+.title-container > h3 {
+  margin: 1rem;
+  color: #ec7160;
+  font-size: 0.9rem;
+}
+
+.delete-btn {
+  display: none;
+  background: none;
+  border: none;
+  display: block;
+  margin-right: 0.5rem;
+}
+
+.text-snippet {
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.2rem;
+  color: #4a4e74;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.title {
+  overflow: hidden;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.selected-note {
+  background: #f6f6f6;
+  border-radius: 0.6rem;
+}
+
+.sidebar-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0.5rem;
+  color: #898989;
+}
+.sidebar-text > h1 {
+  color: #303030;
+}
+
+.sidebar-text > h1,
+h4,
+p {
+  margin: 0.3rem;
+}
+
+
+.sidebar {
+  width: 30%;
+  height: 100vh;
+  border-right: 1px solid #e7e7e9;
+}
+
+.sidebar-notes {
+    margin: 1rem;
+  }

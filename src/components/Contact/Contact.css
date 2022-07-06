@@ -7,7 +7,7 @@
   width: 100%;
   margin: auto;
   margin-top: 5rem;
-  gap: 2rem;
+  gap: 1rem;
 }
 .contact-name-email {
   display: flex;
@@ -22,6 +22,7 @@
 
 .contanct-container textarea {
     padding: 0.5rem;
+    padding-bottom: 5rem;
     border: none;
     border-radius: 0.5rem;
     background: #f6f6f6;
@@ -42,5 +43,31 @@
   border-radius: 0.5rem;
   background: #ec7160;
   color: #ffffff;
+}
+
+
+.contanct-container button:hover {
+    opacity: 0.8;
+}
+
+.error {
+  padding: 0.5rem 3rem;
+  border: none;
+  background-color: #ec7160;
+  border-radius: 1rem;
+  align-self: flex-start;
+}
+
+.contanct-container button {
+  padding: 1rem 1.5rem;
+  max-width: fit-content;
+  border: none;
+  border-radius: 0.5rem;
+  background: #ec7160;
+  color: #ffffff;
+}
+
+.contact-header {
+  margin: 0.5rem 0;
 }
 

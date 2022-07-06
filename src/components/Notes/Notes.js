@@ -1,10 +1,12 @@
-import React from "react";
-import Split from "react-split";
+import React, { useState } from "react";
+import Arrow from "../../assets/arrow-left.svg";
 import { nanoid } from "nanoid";
 import Sidebar from "../Sidebar/Sidebar";
 import Editor from "../Editor/Editor";
+import "./Notes.css"
 
 export default function Notes() {
+  const [arrowToggled, setArrowToggled] = useState(false);
   const [notes, setNotes] = React.useState(
     () => JSON.parse(localStorage.getItem("notes")) || []
   );
@@ -16,12 +18,16 @@ export default function Notes() {
     localStorage.setItem("notes", JSON.stringify(notes));
   }, [notes]);
 
+  function toggleArrow() {
+    setArrowToggled((prevValue) => !prevValue);
+  }
+
   function createNewNote() {
     const newNote = {
       id: nanoid(),
       title: "Title test",
       body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at arcu dui. ",
-      creationDate: new Date().toLocaleDateString('pt-PT')
+      creationDate: new Date().toLocaleDateString("pt-PT"),
     };
     setNotes((prevNotes) => [newNote, ...prevNotes]);
     setCurrentNoteId(newNote.id);
@@ -60,15 +66,26 @@ export default function Notes() {
     <main className="note-container">
       {notes.length > 0 ? (
         <div className="notes-container">
-          <Sidebar
-            notes={notes}
-            currentNote={findCurrentNote()}
-            setCurrentNoteId={setCurrentNoteId}
-            newNote={createNewNote}
-            deleteNote={deleteNote}
-          />
+          {!arrowToggled && (
+            <Sidebar
+              notes={notes}
+              currentNote={findCurrentNote()}
+              setCurrentNoteId={setCurrentNoteId}
+              newNote={createNewNote}
+              deleteNote={deleteNote}
+            />
+          )}
+
           {currentNoteId && notes.length > 0 && (
-            <Editor currentNote={findCurrentNote()} updateNote={updateNote} />
+            <div>
+              <img
+                onClick={toggleArrow}
+                className={arrowToggled ? "arrow arrow-active" : "arrow"}
+                alt="arrow"
+                src={Arrow}
+              />
+              <Editor currentNote={findCurrentNote()} updateNote={updateNote} />
+            </div>
           )}
         </div>
       ) : (
